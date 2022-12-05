@@ -13,7 +13,7 @@ Rcore study record
 
 1、mmap时，使用find_pte，已经分配的第三级页表时，查询临近页可能返回Some(pte)需要同is_valid()判断一下。 
 
-2、MapPermission和port中排列不同，不要随便复制粘贴 
+2、MapPermission和port中排列不同，不要随便复制粘贴 （这个导致两个有mmap后然后write的ut，直接hang住了，感觉可以增加一点提示TODO）
 
 3、translated_ptr推荐使用模板 
 
