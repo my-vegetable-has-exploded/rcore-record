@@ -18,3 +18,11 @@ Rcore study record
 3、translated_ptr推荐使用模板 
 
 4、页表不足一页的地方如何处理，需要阅读具体代码。
+
+### 六周 12.13
+
+lab3内容相比而言整体结构改动较小，主要将TaskManager功能下放到TCB，TaskManager只保留了ready_queue的功能。
+
+整体流程比较清晰， 感觉可以比较注意的是，完成初始化的进程，通过设置trap_cx，通过trap_cx设置堆栈、a0、entry_point，__switch后以trap_return 的方式回到用户态进行。以及 fork 通过设置 新task的a0为0，使if(fork()==0)进入不同分支。
+
+lab内容较为清晰， spawn只要是模仿fork+exec代码， stripe算法也主要集中在tcb和run task中。
